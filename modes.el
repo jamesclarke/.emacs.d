@@ -12,3 +12,8 @@
 (add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
 
 (autoload 'lua-mode "lua-mode" "Lua editing mode." t)
+
+;; Jira mode
+(add-to-list 'load-path (file-name-as-directory "/home/jaley/.emacs.d/plugins/jira-mode"))
+(require 'jira)
+
