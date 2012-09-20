@@ -48,6 +48,20 @@
                             (line-number-mode -1)))
 (setq inhibit-startup-screen t)
 
+
+;;
+;; Editing behaviour
+;;
+
+(setq-default indent-tabs-mode nil)
+(setq x-select-enable-clipboard t)
+(setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
+
+
+;;
+;; Custom functions/keybindings
+;;
+
 ;; Fullscreen mode, bound to F11
 (defun toggle-fullscreen (&optional f)
   (interactive)
@@ -59,12 +73,9 @@
                                   'fullboth)))))
 (global-set-key [f11] 'toggle-fullscreen)
 
-
-;;
-;; Editing behaviour
-;;
-
-(setq-default indent-tabs-mode nil)
-(setq x-select-enable-clipboard t)
-(setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
+;; Insert a date in the format 2012-09-20
+(defun my-insert-date ()
+  (interactive)
+  (insert (format-time-string "%Y-%m-%d")))
+(global-set-key (kbd "C-%") 'my-insert-date)
 
