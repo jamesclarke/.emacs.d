@@ -22,12 +22,17 @@
                              durendal)
   "Emacs packages to be installed if they aren't already.")
 
+;; Remove the annoying line highlighting that is turned on in the
+;; Emacs Starter Kit.
+(remove-hook 'prog-mode-hook 'esk-turn-on-hl-line-mode)
+
 (dolist (p installed-packages)
   (when (not (package-installed-p p))
     (package-install p)))
 
 ;; We don't want custom messing with this file
 (setq custom-file "~/.emacs.d/custom.el")
+(load custom-file)
 
 ;;
 ;; Frame appearance
